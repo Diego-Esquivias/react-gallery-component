@@ -1,13 +1,22 @@
 import './Gallery.css'
 import { data } from '../data'
-import { useState } from 'react'
+
+/**
+ * Gallery Component
+ * ------------------
+ * This component displays a gallery of images sourced from the `data` array.
+ * It maps over the `data` array to create a grid of items, where each item 
+ * consists of an image and an overlay displaying the image name.
+ * 
+ * Dependencies: 
+ * - Requires `data` to be imported, structured as an array of objects with `id`, 
+ *   `pictureURL`, `altText`, and `pictureName` fields.
+*/
 
 const Gallery = () => {
-    const [people, setPeople] = useState(data)
-
     return (
         <div className="gallery">
-            {people.map((person) => (
+            {data.map((person) => (
                 <div key={person.id} className="gallery-item">
                     <img src={person.pictureURL} alt={person.altText} />
                     <div className="overlay">{person.pictureName}</div>
